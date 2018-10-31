@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ULScores">
+        <li>85</li>
+        <li>76</li>
+        <li>92</li>
+        <li>61</li>
+    </ul>
+    <script>
+        var html = ULScores.innerHTML;
+        html = html.replace(/^\s*<li>/i,"");
+        html = html.replace(/<\/li>\s*$/i,"");
+        scores = html.split(/<\/li>\s*<li>/i);
+        scores.sort((a,b) => b-a);
+        console.log(scores);
+        html = "<li>"+scores.join("</li><li>")+"</li>";
+        console.log(html);
+        ULScores.innerHTML = html;
+    </script>
+</body>
+</html>
